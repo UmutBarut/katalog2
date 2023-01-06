@@ -1,0 +1,83 @@
+@using Katalog.ViewModels;
+@model UrunViewModel;
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="container">
+
+        <form asp-controller="Admin" asp-action="UrunTanimlama" method="post" enctype="multipart/form-data">
+
+            <div class="card card-bordered">
+                <div class="card-header">
+                    <h3 class="card-title">Ürün Tanımlayın</h3>
+
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col col-md-6">
+                            <div class="mb-10">
+                                <label for="exampleFormControlInput1" class="required form-label">Ürün No</label>
+                                <input type="text" class="form-control form-control-sm form-control-solid"
+                                    placeholder="Ürün No Giriniz" name="UrunNo" />
+                            </div>
+                        </div>
+                        <div class="col col-md-6">
+                            <div class="mb-10">
+                                <label for="exampleFormControlInput1" class="required form-label">Ürün Adı</label>
+                                <input type="text" class="form-control form-control-sm form-control-solid"
+                                    placeholder="Ürün Adı Giriniz" name="UrunAdi" />
+                            </div>
+                        </div>
+                        <div class="col col-md-6">
+                            <div class="mb-10">
+                                <label for="exampleFormControlInput1" class="required form-label">Ölçüler</label>
+                                <input type="text" class="form-control form-control-sm form-control-solid"
+                                    placeholder="Ürün Ölçüsü Giriniz" name="Olculer" />
+                            </div>
+                        </div>
+                        <div class="col col-md-6">
+                            <div class="mb-10">
+                                <label for="exampleFormControlInput1" class="required form-label">EAN No</label>
+                                <input type="text" class="form-control form-control-sm form-control-solid"
+                                    placeholder="EAN No Giriniz" name="EANno" />
+                            </div>
+                        </div>
+                        <div class="col col-md-6">
+                            <div class="mb-10">
+                                <label for="exampleFormControlInput1" class="form-label">Eşleştirilen Ürün No</label>
+                                <input type="text" class="form-control form-control-sm form-control-solid"
+                                    placeholder="Ürün No Giriniz" name="EslestirilenUrunNo" />
+                            </div>
+                        </div>
+                        <div class="col col-md-6">
+                            <label for="upload" class="photo-edit-link">
+                                <input type="file" name="file" id="upload" />
+                                <div class="text-center align-items-center photo-edit-div"><i
+                                        class="fa-solid fa-pen photo-edit-icon"></i></div>
+                            </label>
+                        </div>
+                        
+                           
+                            <div class="col col-md-6">
+                                <div class="mb-10">
+                                    <label for="exampleFormControlInput1" class="required form-label">Araç Modeli</label>
+                                    <select multiple="multiple" class="form-select form-select-sm form-select-solid" data-control="select2" name="ModelIDleri"
+                                        data-placeholder="Tip Seçiniz">
+                                        <option selected value=""></option>
+                                        @foreach (var item in Model.Modeller)
+                                        {
+                                            <option value="@item.ModelID">@item.ModelAdi</option>
+                                        }
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-success" style="float: right;">Ürün Ekle</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
